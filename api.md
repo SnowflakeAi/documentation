@@ -3,19 +3,20 @@ Developer API
 
 Welcome to the Snowflake API.
 
-### Authentication
+Authentication
+--------------
 
 Almost all calls to the Snowflake API require you to authenticate yourself to ensure no unauthorised requests are being made. We use API keys to allow access, you can create a new API keys from the Snowflake UI.
 
-##Curl example
-
+> Curl example
 ```
 curl "{{api endpoint}}" \
 -H "Content-Type: application/json"
 -H "Authorization: Bearer {{api key}}"
 ```
 
-### Errors
+Errors
+------
 
 The Snowflake API uses the following error codes:
 
