@@ -3,29 +3,30 @@ Developer API
 
 Welcome to the Snowflake API.
 
-A successful request to the Snowflake API will return a status code in the 200 range, unsuccessful requests will return an [error status code](#developer-api-errors).
+All successful API request to the Snowflake API will return a status code in the 200 range, unsuccessful requests will return an [error status code](#developer-api-errors).
 
 Authentication
 --------------
 
 Almost all calls to the Snowflake API require you to authenticate yourself to ensure no unauthorised requests are being made. We use API keys to allow access, you can create a new API keys from the Snowflake UI.
-
-> *Curl example*
 ```
-curl "{{api endpoint}}" \
+curl "https://api.snowflake.ai" \
 -H "Content-Type: application/json"
--H "Authorization: Bearer {{api key}}"
+-H "Authorization: Bearer {{your api key}}"
 ```
 
 Messages
 --------
 
+The `/messages` endpoint is used to trigger the sending of individual messages and also to retrieve the status of previously sent messages.
+
 ### Send a new message
 
+
 ```
-curl "{{api endpoint}}/messages" \
+curl "https://api.snowflake.ai/messages" \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer {{api key}}" \
+-H "Authorization: Bearer {{your api key}}" \
 -X POST \
 -d '{
   "communicationId": "{{communication id}}",
@@ -63,7 +64,7 @@ The data in the message needs to match the schema used for the given communicati
 
 ### HTTP Request
 
-POST {{api endpoint}}/messages
+POST https://api.snowflake.ai/messages
 
 #### Parameters
 
@@ -78,9 +79,9 @@ data | The data you want to use to send the message
 This endpoint retrieves a specific message.
 
 ```
-curl "{{api endpoint}}/messages/{{message id}}" \
+curl "https://api.snowflake.ai/messages/{{message id}}" \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer {{api key}}"
+-H "Authorization: Bearer {{your api key}}"
 ```
 The above command returns JSON structured like this:
 
@@ -96,7 +97,7 @@ The above command returns JSON structured like this:
 
 ### HTTP Request
 
-GET {{api endpoint}}/messages/<ID>
+GET https://api.snowflake.ai/messages/<ID>
 
 ##### URL Parameters
 
@@ -107,8 +108,8 @@ ID | The ID of the message to retrieve
 ### List messages
 
 ```
-curl "{{api endpoint}}/messages/" \
--H "Authorization: Bearer {{api key}}"
+curl "https://api.snowflake.ai/messages/" \
+-H "Authorization: Bearer {{your api key}}"
 ```
 
 The above command returns JSON structured like this:
@@ -144,7 +145,7 @@ This endpoint lists messages sent from your account.
 
 ### HTTP Request
 
-GET {{api endpoint}}/messages/
+GET https://api.snowflake.ai/messages/
 
 
 
