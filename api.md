@@ -3,6 +3,8 @@ Developer API
 
 Welcome to the Snowflake API.
 
+A successful request to the Snowflake API will return a status code in the 200 range, unsuccessful requests will return an [error status code](#developer-api-errors).
+
 Authentication
 --------------
 
@@ -116,7 +118,7 @@ The above command returns JSON structured like this:
   "smsMessages":
   [
     {
-      "to": "+4787654321",
+      "to": "+4746748688",
       "status": "sent",
       "sentAt": "2015-11-19T17:49:15Z",
       "id": "004e49a0-d1e4-4a9d-a58b-308629868a50",
@@ -152,7 +154,7 @@ GET {{api endpoint}}/messages/
 Errors
 ------
 
-The Snowflake API uses the following error codes:
+The Snowflake API will return normal HTTP error codes when something goes wrong. Depending on the error code you may want to just retry the same command.
 
 Error|Code|Meaning
 -----|----|-------
@@ -162,5 +164,5 @@ Error|Code|Meaning
 404 | Not Found | The specified resource could not be found
 405 | Method Not Allowed | You tried to access a resource with an invalid method
 429 | Too Many Requests | You are exceeding our rate limits.
-500 | Internal Server Error | We had a problem with our server. Try again later.
+500 | Internal Server Error | We had a problem with our server. Please try again later.
 503 | Service Unavailable | We’re temporarially offline for maintanance. Please try again later.
