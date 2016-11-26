@@ -18,7 +18,7 @@ curl "{{api endpoint}}" \
 Messages
 --------
 
-# Send a new message
+### Send a new message
 
 ```
 curl "{{api endpoint}}/messages" \
@@ -43,8 +43,8 @@ curl "{{api endpoint}}/messages" \
     }
   }
 }'
-
-The above command returns JSON structured like this:
+```
+The command returns JSON structured like this:
 
 ```
 {
@@ -59,11 +59,11 @@ The example assumes that the templates are set up to use the agents email / phon
 
 The data in the message needs to match the schema used for the given communication.
 
-# HTTP Request
+### HTTP Request
 
 POST {{api endpoint}}/messages
 
-### Parameters
+#### Parameters
 
 Parameter | Description
 ----------|------------
@@ -71,14 +71,15 @@ communicationId | The ID of the communication you want to send
 environment | The environment to pick a template from. Either ‘draft’ or 'release’ at this point.
 data | The data you want to use to send the message
 
-## Get a Specific Message
+### Get a Specific Message
+
+This endpoint retrieves a specific message.
 
 ```
 curl "{{api endpoint}}/messages/{{message id}}" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {{api key}}"
 ```
-
 The above command returns JSON structured like this:
 
 ```
@@ -90,19 +91,18 @@ The above command returns JSON structured like this:
 }
 ```
 
-This endpoint retrieves a specific message.
 
-## HTTP Request
+### HTTP Request
 
 GET {{api endpoint}}/messages/<ID>
 
-### URL Parameters
+##### URL Parameters
 
 Parameter | Description
 ----------|------------
 ID | The ID of the message to retrieve
 
-## List messages
+### List messages
 
 ```
 curl "{{api endpoint}}/messages/" \
@@ -140,7 +140,7 @@ The above command returns JSON structured like this:
 
 This endpoint lists messages sent from your account.
 
-## HTTP Request
+### HTTP Request
 
 GET {{api endpoint}}/messages/
 
