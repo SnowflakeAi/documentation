@@ -1,5 +1,5 @@
-Flatdoc examples
-================
+Snowflake Guide
+===============
 
 ### Large sidebar button
 [View example >](examples/big-button.html)

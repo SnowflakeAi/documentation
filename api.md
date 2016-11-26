@@ -1,4 +1,4 @@
-Flatdoc examples
+Developer API
 ================
 
 ### Large sidebar button
