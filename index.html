@@ -40,20 +40,52 @@ Customize as you see fit!
 
             });
         </script>
+        <style>
+         .header {
+             background-image: url(https://snowflake.ai/wp-content/uploads/2016/11/blue-background.jpg);
+             background-repeat: no-repeat !important;
+             background-position: top center !important;
+             -webkit-background-size: cover !important;
+             -moz-background-size: cover !important;
+             background-size: cover !important;
+             max-height: 73px;
+             overflow: hidden;
+             text-shadow: none;
+             padding: 10px 15px 5px 30px;
+         }
+         .header-logo {
+             max-height: 51px;
+         }
+         .header .right ul {
+             padding-top: 18px;
+         }
+         .header .right ul li {
+             display: inline-block;
+             padding-right: 22px;
+             font-size: 14px;
+             border-left: none;
+             border-right: none;
+         }
+         .header .right ul li a {
+             color: white;
+             font-family: "Open Sans",Arial,sans-serif;
+             font-size: 14px;
+             font-weight: 600;
+             -webkit-font-smoothing: antialiased;
+             -moz-osx-font-smoothing: grayscale;
+         }
+        </style>
     </head>
     <body role='flatdoc'>
-
         <div class='header'>
             <div class='left'>
-                <h1>Snowflake Documentation</h1>
+                <img class="header-logo" src="https://snowflake.ai/wp-content/uploads/2016/11/logo-white.png" alt="Snowflake" id="logo">
+            </div>
+            <div class='right'>
                 <ul>
                     <li><a href='https://github.com/SnowflakeAi/documentation'>View on GitHub</a></li>
                     <li><a href='https://github.com/SnowflakeAi/documentation/issues'>Issues</a></li>
                 </ul>
-            </div>
-            <div class='right'>
-                <!-- GitHub buttons: see http://ghbtns.com -->
-                <iframe src="http://ghbtns.com/github-btn.html?user=SnowflakeAi&amp;repo=documentation&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
             </div>
         </div>
 
