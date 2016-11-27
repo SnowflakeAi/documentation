@@ -1,8 +1,25 @@
-Snowflake Guide
-===============
+Snowflake Documentation
+=======================
 
-This guide will walk you through how to get started using Snowflake, if you are looking for how to use the API then checkout the [Developer API](/api.html).
+Welcome to Snowflake! Get ready to explore and learn everything about Snowflake features.
 
-### First step
+The Getting Started Guide
+-------------------------
 
-Your data is the foundation of how Snowflake works, so the very first step is to describe your data in the Snowflake UI. Navigate to the schema editor and start adding the different properties. In Snowflake you can describe very complex data where you can have objects that contain lists that contain other lists. So you should be able to duplicate your internal data structure. This means that you keep it recognisable and more important you keep all the insights inside the data which later can be used when making segments, automations and inside the template editor.
+Are you new to Snowflake then this is probably the best place for you to start, we will take you through the setup process so that at the end of this guide you will have sent your first basic communication. After that we encourage you to explore the different features for a more indepth understanding.
+
+[Read more...](./getting-started/)
+
+The Snowflake Features
+----------------------
+
+This works more like a reference for all the different Snowflake features and how to configure them. This part focusses primarly on the Snowflake UI and should be use by anybody having access to the Snowflake service.
+
+[Read more...](./features/)
+
+The Developer API
+-----------------
+
+This part of the documentation is meant for developers that need to learn how to integrate with Snowflake in order to trigger messages and how to synchronise data between their internal services and SNowflake as well as how to setup webhook support to get data back into their internal systems.
+
+[Read more...](./api/)

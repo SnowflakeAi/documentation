@@ -69,6 +69,9 @@
          .et_header_style_centered .mobile_nav .select_page, .et_header_style_split .mobile_nav .select_page, .et_nav_text_color_light #top-menu > li > a, .et_nav_text_color_dark #top-menu > li > a, #top-menu a, .et_mobile_menu li a, .et_nav_text_color_light .et_mobile_menu li a, .et_nav_text_color_dark .et_mobile_menu li a, #et_search_icon:before, .et_search_form_container input, span.et_close_search_field:after, #et-top-navigation .et-cart-info {
              color: rgba(255,255,255,0.99);
          }
+         .content {
+             max-width: 900px;
+         }
         </style>
         <script type="text/javascript" src="/df983.js"></script>
 
@@ -77,16 +80,10 @@
 
         <title>Snowflake Documentation</title>
 
-        <!-- Initializer -->
-        <script>
-            Flatdoc.run({
-                fetcher: Flatdoc.file([ './readme.md' ])
- //               Flatdoc.github('SnowflakeAi/documentation')
-            });
-        </script>
+        <script src='./init.js'></script>
 
     </head>
-    <body role='flatdoc' class="page page-id-536 page-template-default custom-background desktop et_pb_button_helper_class et_fullwidth_nav et_non_fixed_nav et_show_nav et_cover_background et_secondary_nav_enabled et_pb_gutter osx et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_full_width_page et_divi_theme chrome">
+    <body role='flatdoc' class="no-literate page page-id-536 page-template-default custom-background desktop et_pb_button_helper_class et_fullwidth_nav et_non_fixed_nav et_show_nav et_cover_background et_secondary_nav_enabled et_pb_gutter osx et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_full_width_page et_divi_theme chrome">
                     <div id="page-container">
 
                         <div id="top-header">
@@ -119,7 +116,9 @@
                                 <div id="et-top-navigation" data-height="50" data-fixed-height="40">
                                     <nav id="top-menu-nav">
 <ul id="top-menu" class="nav">
-<li id="menu-item-373" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-373"><a href="/">Getting started</a></li>
+<li id="menu-item-373" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-373"><a href="/">Home</a></li>
+<li id="menu-item-532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-532"><a href="/getting-started/">Getting Started</a></li>
+<li id="menu-item-532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-532"><a href="/features/">Features</a></li>
 <li id="menu-item-532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-532"><a href="/api/">Developer API</a></li>
 <li id="menu-item-327" class="et_pb_button_top menu-item menu-item-type-post_type menu-item-object-page menu-item-327"><a href="https://snowflake.ai/sign-up/">Sign-up</a></li>
 </ul>

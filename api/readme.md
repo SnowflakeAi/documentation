@@ -3,17 +3,21 @@ Developer API
 
 Welcome to the Snowflake API.
 
-All successful API request to the Snowflake API will return a status code in the 200 range, unsuccessful requests will return an [error status code](#developer-api-errors).
+The Snowflake API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support cross-origin resource sharing, allowing you to interact securely with our API from a client-side web application (though you should never expose your secret API key in any public website's client-side code). [JSON](http://www.json.org/) is returned by all API responses, including errors.
 
 Authentication
 --------------
 
-Almost all calls to the Snowflake API require you to authenticate yourself to ensure no unauthorised requests are being made. We use API keys to allow access, you can create a new API keys from the Snowflake UI.
+Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the [Dashboard](https://app.snowflake.ai/#/admin/api_access). Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
+
 ```
 curl "https://api.snowflake.ai" \
 -H "Content-Type: application/json"
 -H "Authorization: Bearer {{your api key}}"
 ```
+
+You will need to authenticate via bearer auth (e.g., for a cross-origin request), use -H "Authorization: Bearer {{your api key}}" instead of -u {{your api keyB}}:.
+All API requests must be made over [HTTPS](http://en.wikipedia.org/wiki/HTTP_Secure). Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
 Messages
 --------
@@ -155,15 +159,15 @@ GET https://api.snowflake.ai/messages/
 Errors
 ------
 
-The Snowflake API will return normal HTTP error codes when something goes wrong. Depending on the error code you may want to just retry the same command.
+Snowflake uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a message failed, etc.), and codes in the 5xx range indicate an error with Snowflake's servers (these are rare) and should be retried again.
 
-Error|Code|Meaning
------|----|-------
-400 | Bad Request | Your request is invalid
-401 | Unauthorized | Your API key is wrong
-403 | Forbidden | You do not have access to the current resource
-404 | Not Found | The specified resource could not be found
-405 | Method Not Allowed | You tried to access a resource with an invalid method
-429 | Too Many Requests | You are exceeding our rate limits.
-500 | Internal Server Error | We had a problem with our server. Please try again later.
-503 | Service Unavailable | We’re temporarially offline for maintanance. Please try again later.
+>Error|Code|Meaning
+>-----|----|-------
+>400 | Bad Request | Your request is invalid
+>401 | Unauthorized | Your API key is wrong
+>403 | Forbidden | You do not have access to the current resource
+>404 | Not Found | The specified resource could not be found
+>405 | Method Not Allowed | You tried to access a resource with an invalid method
+>429 | Too Many Requests | You are exceeding our rate limits.
+>500 | Internal Server Error | We had a problem with our server. Please try again later.
+>503 | Service Unavailable | We’re temporarially offline for maintanance. Please try again later.
