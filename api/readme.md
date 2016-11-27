@@ -26,6 +26,13 @@ The `/messages` endpoint is used to trigger the sending of individual messages a
 
 ### Send a new message
 
+This endpoint sends a new message via the appropriate channel.
+<br/><br/>
+in order to sent a message to an individual person you need to make a `POST` request to `https://api.snowflake.ai/messages` take a look at the command here on the side to see what is needed.
+<br/><br/>
+The example assumes that the templates are set up to use the agents email / phone number as sender email / phone number and the customers email / phone number as the recipient email / phone numbers.
+
+
 
 ```
 curl "https://api.snowflake.ai/messages" \
@@ -34,9 +41,9 @@ curl "https://api.snowflake.ai/messages" \
 -X POST \
 -d '{
   "communicationId": "{{communication id}}",
-  "environment": "draft",
+  "contactId": "{{your customer id}}",
+  "environment": "production",
   "data": {
-    "channel": "sms",
     "foo": "Bar",
     "agent": {
       "phoneNumber": "+4712345678",
@@ -51,7 +58,10 @@ curl "https://api.snowflake.ai/messages" \
   }
 }'
 ```
-The command returns JSON structured like this:
+
+#### Success
+
+When successful the command will return a JSON structure like this:
 
 ```
 {
@@ -60,34 +70,44 @@ The command returns JSON structured like this:
 }
 ```
 
-This endpoint sends a new message via the appropriate channel.
+The data in the message needs to match the contact schema that is defined in the Snowflake UI. If the contact doesn't exist in the Snowflake database then this will also add it, which means that future sent requests do not need to contain the all data. And if the contact does exist then it will be updated accordingly. This makes it possible to just start sending messages even before syncing all available customer data.
 
-The example assumes that the templates are set up to use the agents email / phone number as sender email / phone number and the customers email / phone number as the recipient email / phone numbers.
+```
+curl "https://api.snowflake.ai/messages" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {{your api key}}" \
+-X POST \
+-d '{
+  "communicationId": "{{communication id}}",
+  "contactId": "{{your customer id}}",
+  "environment": "production"
+}'
+```
 
-The data in the message needs to match the schema used for the given communication.
-
-### HTTP Request
-
-POST https://api.snowflake.ai/messages
 
 #### Parameters
 
 Parameter | Description
 ----------|------------
-communicationId | The ID of the communication you want to send
+communicationId | The ID of the communication you want to send.
+contactId | The ID of the contact you want to sent the message to.
 environment | The environment to pick a template from. Either ‘draft’ or 'release’ at this point.
-data | The data you want to use to send the message
+data | The data you want to use to send the message, this is optional when the contact already exists. If the contact exists and you provide a data object then it will update the contact.
+
 
 ### Get a Specific Message
 
-This endpoint retrieves a specific message.
+In order to get the status of a spcific message that was sent before you need to make a `GET` request to `https://api.snowflake.ai/messages/<ID>` where `ID` is the id that was returned form the `POST` request.
 
 ```
 curl "https://api.snowflake.ai/messages/{{message id}}" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {{your api key}}"
 ```
-The above command returns JSON structured like this:
+
+#### Success
+
+When successful the command will return a JSON structure like this:
 
 ```
 {
@@ -99,10 +119,6 @@ The above command returns JSON structured like this:
 ```
 
 
-### HTTP Request
-
-GET https://api.snowflake.ai/messages/<ID>
-
 ##### URL Parameters
 
 Parameter | Description
@@ -111,12 +127,16 @@ ID | The ID of the message to retrieve
 
 ### List messages
 
+In order to get a list with all messages that have been sent via Snowflake you have to make a `GET` request to `https://api.snowflake.ai/messages/`. By default it will only return the messages sent in the last 24 hours.
+
 ```
 curl "https://api.snowflake.ai/messages/" \
 -H "Authorization: Bearer {{your api key}}"
 ```
 
-The above command returns JSON structured like this:
+#### Success
+
+When successful the command will return a JSON structure like this:
 
 ```
 {
@@ -144,16 +164,6 @@ The above command returns JSON structured like this:
   ]
 }
 ```
-
-This endpoint lists messages sent from your account.
-
-### HTTP Request
-
-GET https://api.snowflake.ai/messages/
-
-
-
-
 
 
 Errors
