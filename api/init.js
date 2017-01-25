@@ -7,5 +7,5 @@ window.onload = function () {
 };
 
 Flatdoc.run({
-    fetcher: Flatdoc.file([ './readme.md' ])
+    fetcher: Flatdoc.file([ './readme.md', './webhooks.md' ])
 });
