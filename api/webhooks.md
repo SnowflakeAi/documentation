@@ -180,11 +180,11 @@ Snowflake has suficticated webhook support that enables you to keep your interna
 ```
 {
   "to_name": "Mark Nijhof",
-  "to_email": "mark@snowflake.ai",
+  "to": "mark@snowflake.ai",
   "subject": "Welcome to Snowflake!",
   "id": "2c09a6ce-e18e-46bc-9e9a-632024cce58f",
   "from_name": "Snowflake Support",
-  "from_email": "support@snowflake.ai",
+  "from": "support@snowflake.ai",
   "body_html": "The HTML email body",
   "body": "The plain text email body",
   "attachments": null
