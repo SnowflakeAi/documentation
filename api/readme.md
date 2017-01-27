@@ -42,7 +42,7 @@ curl "https://api.snowflake.ai/messages" \
 -d '{
   "communicationId": "{{communication id}}",
   "contactId": "{{your customer id}}",
-  "environment": "production",
+  "environment": "published | draft",
   "data": {
     "foo": "Bar",
     "agent": {
@@ -70,6 +70,7 @@ When successful the command will return a JSON structure like this:
 }
 ```
 
+#### (still in beta)
 The data in the message needs to match the contact schema that is defined in the Snowflake UI. If the contact doesn't exist in the Snowflake database then this will also add it, which means that future sent requests do not need to contain the all data. And if the contact does exist then it will be updated accordingly. This makes it possible to just start sending messages even before syncing all available customer data.
 
 ```
@@ -80,7 +81,7 @@ curl "https://api.snowflake.ai/messages" \
 -d '{
   "communicationId": "{{communication id}}",
   "contactId": "{{your customer id}}",
-  "environment": "production"
+  "environment": "published | draft"
 }'
 ```
 
@@ -90,7 +91,7 @@ curl "https://api.snowflake.ai/messages" \
 Parameter | Description
 ----------|------------
 communicationId | The ID of the communication you want to send.
-contactId | The ID of the contact you want to sent the message to.
+contactId | The unique ID of the contact you want to sent the message to.
 environment | The environment to pick a template from. Either ‘draft’ or 'release’ at this point.
 data | The data you want to use to send the message, this is optional when the contact already exists. If the contact exists and you provide a data object then it will update the contact.
 
