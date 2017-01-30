@@ -92,7 +92,7 @@ Parameter | Description
 ----------|------------
 communicationId | The ID of the communication you want to send.
 contactId | The unique ID of the contact you want to sent the message to.
-environment | The environment to pick a template from. Either ‘draft’ or 'release’ at this point.
+environment | The environment to pick a template from. Either ‘draft’ or 'published’ at this point.
 data | The data you want to use to send the message, this is optional when the contact already exists. If the contact exists and you provide a data object then it will update the contact.
 
 
