@@ -12,6 +12,8 @@ Snowflake has suficticated webhook support that enables you to keep your interna
       "event": "send",
       "occured_at": "2017-01-25T20:56:53",
       "message_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "communication_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "contact_id": "your contact id",
       "channel": "email | sms",
       "message": {... see message payload below ...}
       }
@@ -29,6 +31,8 @@ Snowflake has suficticated webhook support that enables you to keep your interna
       "event": "failed",
       "occured_at": "2017-01-25T20:56:53",
       "message_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "communication_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "contact_id": "your contact id",
       "channel": "email | sms",
       "message": {... see message payload below ...},
       "errors": []
@@ -48,6 +52,8 @@ Snowflake has suficticated webhook support that enables you to keep your interna
       "event": "open",
       "occured_at": "2017-01-25T20:56:53",
       "message_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "communication_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "contact_id": "your contact id",
       "channel": "email",
       "message": {... see message payload below ...},
       "data" : {
@@ -68,6 +74,8 @@ Snowflake has suficticated webhook support that enables you to keep your interna
       "event": "click",
       "occured_at": "2017-01-25T20:56:53",
       "message_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "communication_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "contact_id": "your contact id",
       "channel": "email | sms",
       "message": {... see message payload below ...},
       "data" : {
@@ -89,6 +97,8 @@ Snowflake has suficticated webhook support that enables you to keep your interna
       "event": "bounce",
       "occured_at": "2017-01-25T20:56:53",
       "message_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "communication_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "contact_id": "your contact id",
       "channel": "email",
       "message": {... see message payload below ...},
       "data" : {
@@ -119,6 +129,8 @@ Snowflake has suficticated webhook support that enables you to keep your interna
       "event": "delivery",
       "occured_at": "2017-01-25T20:56:53",
       "message_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "communication_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "contact_id": "your contact id",
       "channel": "email | sms",
       "message": {... see message payload below ...},
       "data" : {
@@ -142,6 +154,8 @@ Snowflake has suficticated webhook support that enables you to keep your interna
       "event": "complaint",
       "occured_at": "2017-01-25T20:56:53",
       "message_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "communication_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "contact_id": "your contact id",
       "channel": "email | sms",
       "message": {... see message payload below ...},
       "data" : {
@@ -165,6 +179,8 @@ Snowflake has suficticated webhook support that enables you to keep your interna
       "event": "reply",
       "occured_at": "2017-01-25T20:56:53",
       "message_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "communication_id": "3ab48f4e-c0eb-46fb-9b76-bae613f418cd",
+      "contact_id": "your contact id",
       "channel": "sms",
       "message": {... see message payload below ...},
       "data" : {

@@ -1,3 +1,6 @@
+run:
+	ws 8080 .
+
 copy_index:
 	cp index.html api/index.html
 	cd api && sed -i '' 's#<title>Snowflake Documentation</title>#<title>Snowflake Documentation | Developer API</title>#' index.html

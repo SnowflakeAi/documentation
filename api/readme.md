@@ -11,9 +11,9 @@ Authentication
 Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the [Dashboard](https://app.snowflake.ai/#/admin/api_access). Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
 
 ```
-curl "https://api.snowflake.ai" \
--H "Content-Type: application/json"
--H "Authorization: Bearer {{your api key}}"
+curl "https://everyone.likesneon.com"
+  -H "Content-Type: application/json"
+  -H "Authorization: Bearer {{your api key}}"
 ```
 
 You will need to authenticate via bearer auth (e.g., for a cross-origin request), use -H "Authorization: Bearer {{your api key}}" instead of -u {{your api keyB}}:.
@@ -28,18 +28,18 @@ The `/messages` endpoint is used to trigger the sending of individual messages a
 
 This endpoint sends a new message via the appropriate channel.
 <br/><br/>
-in order to sent a message to an individual person you need to make a `POST` request to `https://api.snowflake.ai/messages` take a look at the command here on the side to see what is needed.
+in order to sent a message to an individual person you need to make a `POST` request to `https://everyone.likesneon.com/messages` take a look at the command here on the side to see what is needed.
 <br/><br/>
 The example assumes that the templates are set up to use the agents email / phone number as sender email / phone number and the customers email / phone number as the recipient email / phone numbers.
 
 
 
 ```
-curl "https://api.snowflake.ai/messages" \
--H "Content-Type: application/json" \
--H "Authorization: Bearer {{your api key}}" \
--X POST \
--d '{
+curl "https://everyone.likesneon.com/api/messages"
+  -X POST
+  -H "Content-Type: application/json"
+  -H "Authorization: Bearer {{your api key}}"
+  -d '{
   "communicationId": "{{communication id}}",
   "contactId": "{{your customer id}}",
   "environment": "published | draft",
@@ -74,11 +74,11 @@ When successful the command will return a JSON structure like this:
 The data in the message needs to match the contact schema that is defined in the Snowflake UI. If the contact doesn't exist in the Snowflake database then this will also add it, which means that future sent requests do not need to contain the all data. And if the contact does exist then it will be updated accordingly. This makes it possible to just start sending messages even before syncing all available customer data.
 
 ```
-curl "https://api.snowflake.ai/messages" \
--H "Content-Type: application/json" \
--H "Authorization: Bearer {{your api key}}" \
--X POST \
--d '{
+curl "https://everyone.likesneon.com/api/messages" 
+  -X POST 
+  -H "Content-Type: application/json" 
+  -H "Authorization: Bearer {{your api key}}" 
+  -d '{
   "communicationId": "{{communication id}}",
   "contactId": "{{your customer id}}",
   "environment": "published | draft"
